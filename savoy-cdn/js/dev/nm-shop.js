@@ -119,36 +119,13 @@
                 /* Bind: Results bar - Filters reset link */
                 self.$shopWrap.on('click.nmShopFiltersReset', '#nm-shop-filters-reset', function(e) {
                     e.preventDefault();
-                    var resetUrl = location.href.replace(location.search, ''); // Get current URL without query-strings
-
-                    if (self.filtersEnableAjax) {
-                        self.shopGetPage(resetUrl);
-                    } else {
-                        window.location.href = resetUrl;
-                    }
+                    self.shopFiltersReset(this);
                 });
                 
                 /* Bind: Results bar - Search/taxonomy reset link */
                 self.$shopWrap.on('click.nmShopSearchTaxonomyReset', '#nm-shop-search-taxonomy-reset', function(e) {
                     e.preventDefault();
-
-                    var $resetButton = $(this);
-                    if ($resetButton.closest('.nm-shop-results-bar').hasClass('is-search')) {
-                        // Search
-                        var urlSearchParam = self.urlGetParameter('s'), // Check for the "s" parameter in the current page URL
-                            // Search from external page: Get default/main shop URL (current URL may not be the default shop URL)
-                            // Search from shop page: Get current URL without query-strings (current URL is a shop URL)
-                            resetUrl = (urlSearchParam) ? $resetButton.data('shop-url') : location.href.replace(location.search, '');
-                    } else {
-                        // Category or tag
-                        var resetUrl = $resetButton.data('shop-url'); // Get default/main shop URL
-                    }
-                    
-                    if (self.filtersEnableAjax) {
-                        self.shopGetPage(resetUrl);
-                    } else {
-                        window.location.href = resetUrl;
-                    }
+                    self.shopSearchTaxonomyReset(this);
                 });
 			}
 			
@@ -230,8 +207,8 @@
 				}
 			}
 		},
-		
-		
+        
+        
 		/**
 		 *	Shop: Check for URL #hash and scroll/jump to shop if added
 		 */
@@ -363,13 +340,15 @@
 		 *	Shop: Show "loader" overlay
 		 */
 		shopShowLoader: function(disableAnimation) {
-			var $shopLoader = $('#nm-shop-products-overlay');
+			var self = this,
+                $shopLoader = $('#nm-shop-products-overlay');
 			
 			if (disableAnimation) {
 				$shopLoader.addClass('no-anim');
 			}
 							
 			$shopLoader.addClass('show');
+            self.$shopWrap.addClass('loading');
 		},
 		
 		
@@ -393,7 +372,52 @@
 				self.infscrollLock = false; // "Unlock" infinite scroll
 				self.$window.trigger('scroll'); // Load next page (if correct scroll position)
 			}
+            
+            self.$shopWrap.removeClass('loading');
 		},
+        
+        
+        /**
+		 *	Shop: Filters - Reset
+		 */
+		shopFiltersReset: function(resetBtn) {
+            var self = this,
+                $resetButton = $(resetBtn),
+                // Get URL from "override" data attribute (used on preview), or from current URL without query-strings
+                resetUrl = ($resetButton.data('shop-override-url')) ? $resetButton.data('shop-override-url') : location.href.replace(location.search, '');
+            
+            if (self.filtersEnableAjax) {
+                self.shopGetPage(resetUrl);
+            } else {
+                window.location.href = resetUrl;
+            }
+        },
+        
+        
+        /**
+		 *	Shop: Filters - Reset search or taxonomy
+		 */
+		shopSearchTaxonomyReset: function(resetBtn) {
+            var self = this,
+                $resetButton = $(resetBtn);
+            
+            if ($resetButton.closest('.nm-shop-results-bar').hasClass('is-search')) {
+                // Search
+                var urlSearchParam = self.urlGetParameter('s'), // Check for the "s" parameter in the current page URL
+                    // Search from external page: Get default/main shop URL (current URL may not be the default shop URL)
+                    // Search from shop page: Get current URL without query-strings (current URL is a shop URL)
+                    resetUrl = (urlSearchParam) ? $resetButton.data('shop-url') : location.href.replace(location.search, '');
+            } else {
+                // Category or tag
+                var resetUrl = $resetButton.data('shop-url'); // Get default/main shop URL
+            }
+
+            if (self.filtersEnableAjax) {
+                self.shopGetPage(resetUrl);
+            } else {
+                window.location.href = resetUrl;
+            }
+        },
         
         
         /**

@@ -23,6 +23,7 @@
 			self.shopFilterMenuFnNames = {
 				'cat':		'shopFiltersCategoriesToggle',
 				'filter':	'shopFiltersSidebarToggle',
+                'sidebar':	'shopDefaultSidebarToggle',
 				'search':	'shopFiltersSearchToggle'
 			};
 			
@@ -199,35 +200,51 @@
 					self.shopGetPage($(this).attr('href'));
 				});
 				
-				/* Bind: "WooCommerce Product Categories" widget */
+				/* Bind: "Product Categories" widget */
 				self.$shopWrap.on('click', '#nm-shop-sidebar .widget_product_categories a', function(e) {
 					e.preventDefault();
 					self.shopGetPage($(this).attr('href'));
 				});
 				
-				/* Bind: "WooCommerce Layered Nav" widget */
+				/* Bind: "Filter Products by Attribute" widget */
 				self.$shopWrap.on('click', '#nm-shop-sidebar .widget_layered_nav a', function(e) {
 					e.preventDefault();
 					self.shopGetPage($(this).attr('href'));
 				});
 								
-				/* Bind: "WooCommerce Layered Nav (active) Filters" widget */
+				/* Bind: "Active Product Filters" widget */
 				self.$shopWrap.on('click', '#nm-shop-sidebar .widget_layered_nav_filters a', function(e) {
 					e.preventDefault();
 					self.shopGetPage($(this).attr('href'));
 				});
 								
-				/* Bind: "WooCommerce Product Tags" widget */
+				/* Bind: "Product Tag Cloud" widget */
 				self.$shopWrap.on('click', '#nm-shop-sidebar .widget_product_tag_cloud a', function(e) {
 					e.preventDefault();
 					self.shopGetPage($(this).attr('href'), false, true); // Args: pageUrl, isBackButton, isProductTag
 				});
                 
-                /* Bind: "WooCommerce Average Rating Filter" widget */
+                /* Bind: "Filter Products by Rating" widget */
                 self.$shopWrap.on('click', '#nm-shop-sidebar .widget_rating_filter a', function(e) {
 					e.preventDefault();
 					self.shopGetPage($(this).attr('href'));
 				});
+                
+                /* Bind: "Filter Products by Price" (slider) widget */
+                self.$body.on('price_slider_change', function(event, min, max) {
+                    var $priceSliderForm = $('#nm-shop-sidebar').find('.widget_price_filter').first().find('form'),
+                        currMin = parseInt($priceSliderForm.find('#min_price').attr('value')),
+                        currMax = parseInt($priceSliderForm.find('#max_price').attr('value'));
+                    
+                    // Make sure price value(s) have changed
+                    if (currMin != min || currMax != max) {
+                        var formUrl = $priceSliderForm.attr('action'),
+                            formValues = $priceSliderForm.serialize(),
+                            pageUrl = formUrl+'?'+formValues;
+
+                        self.shopGetPage(pageUrl);
+                    }
+                });
 			}
 		},
 		
@@ -236,15 +253,20 @@
 		 *	Shop filters: Toggle categories
 		 */
 		shopFiltersCategoriesToggle: function() {
-			var self = this;
+			var self = this,
+                $shopCategories = $('#nm-shop-categories'),
+                isOpen = $shopCategories.is(':visible');
 			
-			$('#nm-shop-categories').slideToggle(self.filterPanelSlideSpeed, function() {
-				var $this = $(this);
-				
-				$this.toggleClass('fade-in');
-				if (!$this.hasClass('fade-in')) {
-					$this.removeClass('force-show').css('display', '');
-				}
+            if (isOpen) {
+                $shopCategories.removeClass('fade-in');
+            }
+            
+			$shopCategories.slideToggle(self.filterPanelSlideSpeed, function() {
+                if (!isOpen) {
+					$shopCategories.addClass('fade-in');
+				} else {
+                    $shopCategories.removeClass('force-show').css('display', ''); // Remove "force show" after closing
+                }
 				
 				self.filterPanelSliding = false;
 			});
@@ -293,6 +315,30 @@
             }
         },
 		
+        
+        /**
+		 *	Shop filters: Toggle sidebar filters/widgets panel
+		 */
+		shopDefaultSidebarToggle: function() {
+			var self = this,
+				$shopSidebar = $('#nm-shop-sidebar'),
+				isOpen = $shopSidebar.is(':visible');
+			
+			// Hide filters before sliding-up if sidebar is visible
+			if (isOpen) {
+				$shopSidebar.removeClass('fade-in');
+			}
+			
+			$shopSidebar.slideToggle(self.filterPanelSlideSpeed, function() {
+				// Show filters after sliding-down if sidebar is hidden
+				if (!isOpen) {
+					$shopSidebar.addClass('fade-in');
+				}
+				
+				self.filterPanelSliding = false;
+			});
+		},
+        
 		
 		/**
 		 *	Shop filters: Toggle search panel
@@ -541,8 +587,8 @@
 				});
 			}
 		},
-		
-		
+        
+        
 		/**
 		 *	Shop: Update shop content with AJAX HTML
 		 */
@@ -560,11 +606,21 @@
 			}
 			
 			// Extract elements
-            var $ajaxTaxonomyBanner = $ajaxHTML.find('#nm-shop-taxonomy-header'),
+            var $ajaxBodyClass = $ajaxHTML.find('#nm-body-class'),
+                $ajaxTaxonomyBanner = $ajaxHTML.find('#nm-shop-taxonomy-header'),
                 $ajaxTaxonomyHeading = $ajaxHTML.find('.nm-shop-taxonomy-heading'),
                 $ajaxCategories = $ajaxHTML.find('#nm-shop-categories'),
 				$ajaxSidebarFilters = $ajaxHTML.find('#nm-shop-widgets-ul'),
 				$ajaxShopBrowseWrap = $ajaxHTML.find('#nm-shop-browse-wrap');
+            
+            // Replace: Body archive/taxonomy class
+            if ($ajaxBodyClass.hasClass('post-type-archive')) {
+                self.$body.removeClass('tax-product_cat tax-product_tag').addClass('post-type-archive post-type-archive-product');
+            } else if ($ajaxBodyClass.hasClass('tax-product_cat')) {
+                self.$body.removeClass('post-type-archive post-type-archive-product tax-product_tag').addClass('tax-product_cat');
+            } else if ($ajaxBodyClass.hasClass('tax-product_tag')) {
+                self.$body.removeClass('post-type-archive post-type-archive-product tax-product_cat').addClass('tax-product_tag');
+            }
             
             // Replace: Taxonomy banner
             if ($ajaxTaxonomyBanner.length) {
@@ -604,6 +660,8 @@
 			// Replace: Sidebar filters
             if ($ajaxSidebarFilters.length) {
                 $('#nm-shop-widgets-ul').replaceWith($ajaxSidebarFilters);
+                
+                self.shopFiltersInitPriceSlider();
             }
             
 			// Replace: Shop
@@ -629,7 +687,81 @@
 				// Hide 'loader' overlay (after scroll animation)
 				self.shopHideLoader();
 			}, to);
-		}
+		},
+        
+        
+        /**
+		 *	Shop widget: Price Slider (Filter Products by Price) - Re-init
+         *
+         *  NOTE: Code below copied from "../woocommerce/assets/js/frontend/price-slider.js" since no public function is available
+		 */
+        shopFiltersInitPriceSlider: function() {
+            // woocommerce_price_slider_params is required to continue, ensure the object exists
+            if ( typeof woocommerce_price_slider_params === 'undefined' ) {
+                return false;
+            }
+
+            $( document.body ).bind( 'price_slider_create price_slider_slide', function( event, min, max ) {
+
+                $( '.price_slider_amount span.from' ).html( accounting.formatMoney( min, {
+                    symbol:    woocommerce_price_slider_params.currency_format_symbol,
+                    decimal:   woocommerce_price_slider_params.currency_format_decimal_sep,
+                    thousand:  woocommerce_price_slider_params.currency_format_thousand_sep,
+                    precision: woocommerce_price_slider_params.currency_format_num_decimals,
+                    format:    woocommerce_price_slider_params.currency_format
+                } ) );
+
+                $( '.price_slider_amount span.to' ).html( accounting.formatMoney( max, {
+                    symbol:    woocommerce_price_slider_params.currency_format_symbol,
+                    decimal:   woocommerce_price_slider_params.currency_format_decimal_sep,
+                    thousand:  woocommerce_price_slider_params.currency_format_thousand_sep,
+                    precision: woocommerce_price_slider_params.currency_format_num_decimals,
+                    format:    woocommerce_price_slider_params.currency_format
+                } ) );
+
+                $( document.body ).trigger( 'price_slider_updated', [ min, max ] );
+            });
+
+            function init_price_filter() {
+                $( 'input#min_price, input#max_price' ).hide();
+                $( '.price_slider, .price_label' ).show();
+
+                var min_price         = $( '.price_slider_amount #min_price' ).data( 'min' ),
+                    max_price         = $( '.price_slider_amount #max_price' ).data( 'max' ),
+                    step              = $( '.price_slider_amount' ).data( 'step' ) || 1,
+                    current_min_price = $( '.price_slider_amount #min_price' ).val(),
+                    current_max_price = $( '.price_slider_amount #max_price' ).val();
+
+                $( '.price_slider:not(.ui-slider)' ).slider({
+                    range: true,
+                    animate: true,
+                    min: min_price,
+                    max: max_price,
+                    step: step,
+                    values: [ current_min_price, current_max_price ],
+                    create: function() {
+
+                        $( '.price_slider_amount #min_price' ).val( current_min_price );
+                        $( '.price_slider_amount #max_price' ).val( current_max_price );
+
+                        $( document.body ).trigger( 'price_slider_create', [ current_min_price, current_max_price ] );
+                    },
+                    slide: function( event, ui ) {
+
+                        $( 'input#min_price' ).val( ui.values[0] );
+                        $( 'input#max_price' ).val( ui.values[1] );
+
+                        $( document.body ).trigger( 'price_slider_slide', [ ui.values[0], ui.values[1] ] );
+                    },
+                    change: function( event, ui ) {
+
+                        $( document.body ).trigger( 'price_slider_change', [ ui.values[0], ui.values[1] ] );
+                    }
+                });
+            }
+
+            init_price_filter();    
+        }
 		
 	});
 	

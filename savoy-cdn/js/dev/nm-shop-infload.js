@@ -28,7 +28,7 @@
 				$infloadControls = self.$shopBrowseWrap.children('.nm-infload-controls'),					
 				nextPageUrl;
 			
-			
+            
 			// Used to check if "infload" needs to be initialized after Ajax page load
 			self.shopInfLoadBound = true;
 			
@@ -44,16 +44,18 @@
 				
 				/* Bind: Window resize event to re-calculate the 'pxFromMenuToBottom' value (so the items load at the correct scroll-position) */
 				var to = null;
-				self.$window.resize(function() {
+				self.$window.unbind('resize.nmInfLoad').bind('resize.nmInfLoad', function() {
 					if (to) { clearTimeout(to); }
 					to = setTimeout(function() {
 						var $infloadControls = self.$shopBrowseWrap.children('.nm-infload-controls'); // Note: Don't cache, element is dynamic
-						pxFromMenuToBottom = Math.round(self.$document.height() - $infloadControls.offset().top);
+						if ($infloadControls.length) {
+                            pxFromMenuToBottom = Math.round(self.$document.height() - $infloadControls.offset().top);
+                        }
 					}, 100);
 				});
 				
 				/* Bind: Window scroll event */
-				self.$window.bind('smartscroll.infscroll', function() {
+				self.$window.unbind('smartscroll.infscroll').bind('smartscroll.infscroll', function() {
 					if (self.infscrollLock) {
 						return;
 					}
