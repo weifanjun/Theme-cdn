@@ -1,7 +1,7 @@
 /*
 	Theme Name: Savoy
 	Description: Savoy
-	Version: 2.4.7 - wequan
+	Version: 2.4.9 - wequan
 	Tags: responsive-layout, custom-background, custom-colors, custom-header, custom-menu, theme-options, threaded-comments, translation-ready
 	Text Domain: nm-framework
 	Domain Path: /languages/
@@ -44,7 +44,7 @@ a.dark:hover,a.gray:hover,a.invert-color:hover{color:#dc9814}
 .nm-bullet-list li{list-style:disc inside}
 .push-right{float:right}
 .push-left{float:left}
-input.input-text,input[type=date],input[type=datetime-local],input[type=datetime],input[type=email],input[type=month],input[type=number],input[type=password],input[type=search],input[type=tel],input[type=text],input[type=time],input[type=url],input[type=week],select,textarea{font-family:inherit;line-height:1.6;outline:0;padding:8px 10px;border:1px solid #e7e7e7;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;-webkit-appearance:none}
+input.input-text,input[type=date],input[type=datetime-local],input[type=datetime],input[type=email],input[type=month],input[type=number],input[type=password],input[type=search],input[type=tel],input[type=text],input[type=time],input[type=url],input[type=week],select,textarea{font-family:inherit;line-height:1.6;outline:0;padding:8px 10px;border:1px solid #e1e1e1;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;-webkit-appearance:none}
 input.input-text:focus,input[type=date]:focus,input[type=datetime-local]:focus,input[type=datetime]:focus,input[type=email]:focus,input[type=month]:focus,input[type=number]:focus,input[type=password]:focus,input[type=search]:focus,input[type=tel]:focus,input[type=text]:focus,input[type=time]:focus,input[type=url]:focus,input[type=week]:focus,select:focus,textarea:focus{outline:0;border-color:#ccc}
 @media screen and (-webkit-min-device-pixel-ratio:0){select{padding-right:28px;background-color:#fff;background-image:url(assets/img/select-arrow@2x.gif);background-position:calc(100% - 10px) 50%;background-repeat:no-repeat;background-size:8px 4px}
 }
@@ -484,8 +484,10 @@ body:not(.header-on-scroll):not(.mobile-menu-open) .alt-logo-mobile .nm-logo{dis
 #nm-cart-panel-loader.fade-out{opacity:0}
 #nm-cart-panel-loader h5{position:relative;font-size:16px;color:#282828;margin-top:21px;padding-left:21px}
 #nm-cart-panel-loader h5:after{top:6px;right:auto;left:0;margin:0}
-#nm-widget-panel .product_list_widget .empty{display:none;font-size:16px;min-height:none;margin-bottom:0;padding:21px 0 36px}
+#nm-widget-panel .product_list_widget .empty{display:none;font-size:16px;min-height:none;margin-bottom:0;padding:5vh 0;text-align:center}
 #nm-widget-panel .nm-cart-panel-empty .product_list_widget .empty{display:block}
+#nm-widget-panel .product_list_widget .empty i{display:block;font-size:20px;line-height:29px;width:50px;height:50px;margin:0 auto 21px;padding:10px;text-align:center;background:#eee;-webkit-border-radius:50px;border-radius:50px;opacity:.5;transform:translateY(6px);transition:opacity .2s ease,transform .2s ease;transition-delay:.25s}
+.widget-panel-open #nm-widget-panel .product_list_widget .empty i{opacity:1;transform:translateY(0)}
 .nm-cart-panel-list-wrap{padding:0 37px}
 .no-touch .nm-cart-panel-list-wrap{padding-top:79px;padding-bottom:175px}
 #nm-widget-panel .product_list_widget{position:relative;color:#282828;padding:7px 0 6px}
@@ -543,6 +545,7 @@ body:not(.header-on-scroll):not(.mobile-menu-open) .alt-logo-mobile .nm-logo{dis
 .widget-panel-dark #nm-cart-panel-loader,.widget-panel-dark #nm-widget-panel,.widget-panel-dark .nm-cart-item-loader,.widget-panel-dark .nm-cart-panel-summary-inner,.widget-panel-dark .nm-widget-panel-header-inner{background:#333}
 .widget-panel-dark #nm-widget-panel .nm-quantity-wrap .quantity .nm-qty-minus,.widget-panel-dark #nm-widget-panel .nm-quantity-wrap .quantity .nm-qty-plus,.widget-panel-dark #nm-widget-panel .nm-quantity-wrap .quantity .qty,.widget-panel-dark #nm-widget-panel .product_list_widget,.widget-panel-dark #nm-widget-panel .product_list_widget .remove,.widget-panel-dark #nm-widget-panel .variation,.widget-panel-dark #nm-widget-panel ul.variation li>div:first-child,.widget-panel-dark .nm-widget-panel{color:#a5a5a5}
 .no-touch .widget-panel-dark #nm-widget-panel .nm-quantity-wrap .quantity .nm-qty-minus:hover,.no-touch .widget-panel-dark #nm-widget-panel .nm-quantity-wrap .quantity .nm-qty-plus:hover,.no-touch .widget-panel-dark #nm-widget-panel .product_list_widget .remove:hover,.widget-panel-dark #nm-cart-panel-loader h5,.widget-panel-dark #nm-widget-panel .buttons a:first-child,.widget-panel-dark #nm-widget-panel .nm-cart-panel-item-price .amount,.widget-panel-dark #nm-widget-panel .product_list_widget .empty,.widget-panel-dark #nm-widget-panel .product_list_widget li a,.widget-panel-dark #nm-widget-panel-close,.widget-panel-dark .nm-cart-panel-summary{color:#eee}
+.widget-panel-dark #nm-widget-panel .product_list_widget .empty i{background-color:#414141}
 .widget-panel-dark #nm-widget-panel .product_list_widget .remove{opacity:1}
 .widget-panel-dark #nm-widget-panel .product_list_widget>li>div,.widget-panel-dark #nm-widget-panel .total,.widget-panel-dark .nm-widget-panel-header-inner{border-color:#464646}
 .widget-panel-dark #nm-widget-panel .product_list_widget>li:nth-last-child(2)>div{border-bottom-color:transparent}
@@ -1113,10 +1116,7 @@ div.wpcf7 .placeheld{color:#888}
 @media all and (max-width:550px){.wpcf7-form>p.half{float:none;width:auto}
 }
 .nm-page-not-found{line-height:1.6;text-align:center;padding:68px 0 82px}
-.nm-page-not-found-icon{position:relative;display:inline-block;width:37px;height:37px}
-.nm-page-not-found-icon:after,.nm-page-not-found-icon:before{position:absolute;top:50%;left:0;display:block;content:" ";width:100%;height:2px;margin-top:-1px;background:#282828}
-.nm-page-not-found-icon:before{-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}
-.nm-page-not-found-icon:after{-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg)}
+.nm-page-not-found-icon i{display:inline-block;font-size:22px;line-height:50px;vertical-align:middle;width:50px;height:50px;-webkit-border-radius:50px;border-radius:50px;background:#eee}
 .nm-page-not-found h2{font-size:26px;line-height:1.4;margin-top:14px}
 .nm-page-not-found p{max-width:330px;margin:18px auto 20px}
 .nm-page-not-found .button{font-size:inherit}
