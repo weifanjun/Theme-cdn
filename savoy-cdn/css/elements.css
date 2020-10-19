@@ -390,7 +390,7 @@
 @media all and (max-width:400px){.nm-testimonial-author span{padding-left:0}
 .nm-testimonial-author span:before{display:none}
 }
-.nm-product-categories.masonry-enabled .nm-products{opacity:0;-webkit-transition:opacity .3s ease;-moz-transition:opacity .3s ease;-o-transition:opacity .3s ease;transition:opacity .3s ease}
+.nm-product-categories.masonry-enabled .nm-products{opacity:0;-webkit-transition:opacity .3s ease;transition:opacity .3s ease}
 .nm-product-categories.masonry-enabled .nm-products.show{opacity:1}
 .nm-product-categories .nm-products,.nm-product-categories [class*=block-grid-]{margin:0 -5px -10px}
 .nm-product-category-inner{position:relative}
@@ -398,13 +398,21 @@
 .nm-product-category-inner>a{display:block;width:100%;height:100%}
 .product-category img{display:inline-block;width:100%;height:auto}
 .nm-product-category-text{position:absolute;top:0;left:0;padding:5%}
+.nm-product-categories.layout-separated .nm-product-category-text{position:static;padding:0}
 .nm-product-category-text .nm-product-category-heading,.nm-product-category-text>a{display:block;line-height:1.4;margin:0;padding:0}
 .nm-product-category-text .nm-product-category-heading{font-size:20px}
+.nm-product-categories.layout-separated .nm-product-category-text .nm-product-category-heading{position:absolute;top:0;left:0;padding-top:5%;padding-left:5%}
 .nm-product-category-text .nm-product-category-heading a{color:inherit}
 .nm-product-category-text>a{font-size:16px;padding-top:3px}
-@media all and (max-width:400px){.nm-product-category-text{padding:6.1%}
+.nm-product-categories.layout-separated .nm-product-category-text>a{position:absolute;bottom:0;left:0;padding-bottom:5%;padding-left:5%}
+.nm-product-categories.layout-separated .product-category:hover .nm-product-category-text>a{color:#dc9814}
+@media all and (min-width:750px) and (max-width:834px){.nm-products:not(.medium-block-grid-1) .nm-product-category-text .nm-product-category-heading{font-size:18px}
+.nm-products:not(.medium-block-grid-1) .nm-product-category-text>a{font-size:15px}
+}
+@media all and (max-width:400px){.nm-product-categories.layout-default .nm-product-category-text{padding:6.1%}
 .nm-product-category-text .nm-product-category-heading{font-size:16px}
-.nm-product-category-text>a{display:none}
+.nm-product-categories.layout-default .nm-product-category-text>a{display:none}
+.nm-product-categories.layout-separated .nm-product-category-text>a{font-size:13px}
 }
 .nm-product-search{position:relative;width:100%}
 .nm-product-search input{width:100%}
