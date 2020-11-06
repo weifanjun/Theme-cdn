@@ -914,30 +914,43 @@ body:not(.header-on-scroll):not(.mobile-menu-open) .alt-logo-mobile .nm-logo{dis
 @media all and (max-width:400px){.commentlist>li .children{margin-left:28px}
 }
 .post .entry-content{font-size:16px;line-height:1.6}
-.wp-caption,.wp-caption.alignleft,.wp-caption.alignright,address,blockquote.alignleft,blockquote.alignright,img.alignleft,img.alignright,p,pre{margin-bottom:24px}
+#topbutton{position:fixed;display:none;height:50px;width:50px;line-height:50px;right:30px;bottom:30px;z-index:1;font-size:20px;background:#000;border-radius:2px;text-decoration:none;color:#fff;text-align:center}
+#topbutton:after{content:"\25B2"}
+.wp-caption,.wp-caption.alignleft,.wp-caption.alignright,address,blockquote.alignleft,blockquote.alignright,img.alignleft,img.alignright,p,pre{margin: 0 0 20px 0;line-height: 30px;margin-bottom:24px}
 .nospacing{margin:0;padding:0}
 .entry-content>:last-child{margin-bottom:0}
 .alignleft{float:left}
 .alignright{float:right}
-.aligncenter{clear:both;margin-right:auto;margin-left:auto;text-align:center}
+.aligncenter{clear:both;margin-right:auto;margin-left:auto;text-align:center;margin:30px auto;}
 .wp-caption.alignleft,blockquote.alignleft,img.alignleft{margin-right:28px}
 .wp-caption.alignright,blockquote.alignright,img.alignright{margin-left:28px}
 .wp-caption.aligncenter,blockquote.aligncenter,img.aligncenter{clear:both}
-.entry-content>h1,.entry-content>h2,.entry-content>h3,.entry-content>h4,.entry-content>h5,.entry-content>h6{margin-bottom:26px}
+.entry-content>h1,.entry-content>h2,.entry-content>h3,.entry-content>h4,.entry-content>h5,.entry-content>h6{margin-bottom:26px;font-weight: 600;}
+.entry-content h2{margin-top: 60px;}
+.entry-content h3{margin-top: 50px;font-size: 24px;}
+.entry-content h4{margin-top: 40px;font-size: 20px;}
+.entry-content h5{margin-top: 30px;font-size: 18px;}
+.entry-content img{margin-bottom:40px;}
+.wp-caption img{margin-bottom:0;}
 p:last-child{margin-bottom:0}
 img.width-full{width:100%}
 img.emoji,img.wp-smiley{font-size:inherit}
 code,pre,var{-moz-hyphens:none;font-family:monospace,serif;font-style:normal}
 pre{padding:20px;border:1px solid #e7e7e7;background:#fafafa}
 .entry-content strong{color:#555}
-blockquote{font-size:18px;font-style:italic;color:#555;margin-bottom:26px}
 blockquote h1,blockquote h2,blockquote h3,blockquote h4,blockquote h5,blockquote h6{display:inline-block;padding:7px 0 5px}
-blockquote p{color:#555;margin-bottom:0}
+blockquote{position:relative;display:block;margin:37px auto;font-style:normal;text-align:left;color:#8e8787;background: #f7f7f7;border-radius: 6px;font-weight:500;font-size:18px;line-height:160%;padding:30px 22px 50px 22px}
+blockquote:before{content:"";width:30px;height:30px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAARCAYAAADHeGwwAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFBSURBVHgB7ZQ/UoNAFMa/t6BhYiF2ig2d2HGE5AYeIZwgeoLEk2S8QTxBcgNbxopGTReqmCjsk2UmCMifJDPOWPgVDLvzvd/7WN4s8Mui8gbbpgmjO2SGS5uVR0EYtkE+nfMemG4E0anmv3q1Dfj6YihBYzBMtZaQ/SN/Ma8Dp2E6JyNJfLvdSxoUmHpmdqyRZIyxh7jTnTGx2+QR6hE5lwOJHJwQJuv7xvRJICbk4BwIyEHZl35OfGU9ITMrI/fJXwS1cNs2pfGxzCCEKb1X/y+hzMglkWCvCZ4GOt70CilZ3tUNg4iMdeEMm47lu0qY21cGz5sC6eWN2LEmP3igBPLyUAUgJreqhiU/6s9vU1IzLCBmaFF+ZNVQEHjSViPWqzOBHUXQbOypyDDcnRscqv8Gf6ABx1rrdaykiWiJA/QFHEl+W66g4YEAAAAASUVORK5CYII=) no-repeat;display:block;background-size:contain;line-height:160%;margin-left:4px;margin-top: -10px;margin-bottom:10px}
+blockquote p{font-weight:500;font-size:18px;color:#555;line-height:160%;margin-left:30px;margin-bottom: 0px!important;}
+blockquote p:last-child{margin-bottom:0}
 cite{display:inline-block;font-style:normal;color:#282828;padding-top:5px}
 cite a{text-decoration:underline}
+@media all and (max-width:767px){
+blockquote{margin-left:15px;margin-right:15px}
+}
 .wp-caption{position:relative;max-width:100%}
 .wp-caption img[class*=wp-image-]{display:block;margin:0}
-.wp-caption-text{position:absolute;bottom:15px;left:-15px;font-size:14px;line-height:1.6;color:#eee;max-width:180px;margin:0;padding:12px 19px;background:#333}
+.wp-caption-text{position:absolute;bottom:15px;left:-15px;font-size:14px;line-height:1.6;color:#eee;max-width:240px;margin:0;padding:12px 19px;background:#333}
 ol:not([class]) li,ul:not([class]) li{list-style-position:inside}
 .entry-content>ol:not([class]),.page>ol:not([class]){padding-left:18px}
 .entry-content>ul:not([class]),.page>ul:not([class]){padding-left:14px}
