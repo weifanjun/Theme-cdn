@@ -739,11 +739,11 @@ body:not(.header-on-scroll):not(.mobile-menu-open) .alt-logo-mobile .nm-logo{dis
 .nm-post.nm-post-sidebar-none .nm-post-header{text-align:center}
 .nm-post.nm-post-sidebar-left .nm-post-header .col{float:right}
 .nm-post-header h1{font-size:26px;line-height:1.4;font-weight: 500;}
-.nm-post.nm-post-sidebar-none .nm-post-featured-image{width:calc(100% + 10vw);max-width:none;margin-left:-5vw;text-align:left;box-shadow: 0px 10px 60px 0px rgba(10,45,97,0.1);border-radius: 10px;}
+.nm-post.nm-post-sidebar-none .nm-post-featured-image{width:calc(100% + 10vw);max-width:none;margin-left:-5vw;text-align:left;}
 @media all and (max-width:767px){.nm-post.nm-post-sidebar-none .nm-post-featured-image{box-shadow:0 0 black;}
 }
 .nm-post.has-featured-image .nm-post-featured-image{margin-bottom:44px}
-.nm-post-featured-image img{width:100%}
+.nm-post-featured-image img{width:100%;border-radius: 10px;}
 .nm-post-featured-image.aspect-ratio{position:relative;overflow:hidden}
 .nm-post-featured-image.aspect-ratio.ratio-1-1{padding-bottom:100%}
 .nm-post-featured-image.aspect-ratio.ratio-3-2{padding-bottom:66.66%}
