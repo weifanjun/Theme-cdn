@@ -1303,6 +1303,7 @@ div.wpcf7 .placeheld{color:#888}
 .mbw-ask .mbw_reply_bar .nav_f24{font-size:24px;color:#999;line-height:34px}
 .mbw-ask .mbw_ask_as{padding:20px;border-bottom:1px solid #f2f2f2;position:relative}
 .mbw-ask .mbw_ask_as p{margin:20px 0;font-size:16px;line-height:26px}
+.mbw-ask .mbw_ask_as img{display: block;}
 .mbw-ask .ask_tag{padding: 10px;}
 .about-author{background-color:#fff;border-radius:5px;display:flex}
 .about-author .author-image{flex-shrink:0;height:60px;width:60px}
