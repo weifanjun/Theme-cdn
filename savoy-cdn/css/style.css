@@ -5,6 +5,7 @@
 	Tags: responsive-layout, custom-background, custom-colors, custom-header, custom-menu, theme-options, threaded-comments, translation-ready
 	Text Domain: nm-framework
 	Domain Path: /languages/
+	Change Log: v20201203
 */
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,dialog,div,dl,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,meter,nav,object,ol,output,p,pre,progress,q,rp,rt,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video,xmp{font-size:100%;margin:0;padding:0;border:0}
 html{height:100%}
@@ -963,9 +964,9 @@ blockquote{margin-left:15px;margin-right:15px}
 .wp-caption img[class*=wp-image-]{display:block;margin:0}
 .wp-caption-text{position:absolute;bottom:15px;left:-15px;font-size:14px;line-height:1.6;color:#eee!important;max-width:240px;margin:0;padding:12px 19px;background:#333}
 ol:not([class]) li,ul:not([class]) li{list-style-position:inside}
-.entry-content>ol:not([class]),.page>ol:not([class]){padding-left:18px}
-.entry-content>ul:not([class]),.page>ul:not([class]){padding-left:14px}
-.entry-content>ol:not([class]):not(:last-child),.entry-content>ul:not([class]):not(:last-child),.page>ol:not([class]):not(:last-child),.page>ul:not([class]):not(:last-child){margin-bottom:24px}
+.page>ol:not([class]){padding-left:18px}
+.page>ul:not([class]){padding-left:14px}
+.page>ol:not([class]):not(:last-child),.page>ul:not([class]):not(:last-child){margin-bottom:24px}
 .entry-content ol:not([class]) li,.entry-content ul:not([class]) li,.page>ol:not([class]) li,.page>ul:not([class]) li{list-style-position:outside}
 .entry-content>ol:not([class]) li,.page>ol:not([class]) li{list-style-type:decimal}
 .entry-content>ul:not([class]) li,.page>ul:not([class]) li{list-style-type:disc}
@@ -977,6 +978,10 @@ dd{margin-bottom:24px}
 #tab-description.entry-content table td,#tab-description.entry-content table th,.entry-content>table td,.entry-content>table th{padding:7px}
 #tab-description.entry-content table th,.entry-content>table th{border-width:0 1px 1px 0;font-weight:700}
 #tab-description.entry-content table td,.entry-content>table td{border-width:0 1px 1px 0}
+.entry-content ol,.entry-content ul{list-style-type:disc;padding-left:36px;padding-right:36px;margin:40px auto;-webkit-box-sizing:border-box;box-sizing:border-box}
+.entry-content ul li{margin:10px 0;list-style:disc;font-style:normal;font-weight:400;font-size:16px;line-height:31px;color:#4c4e4d}
+.entry-content ul li::marker{color:red}
+.entry-content ol li{list-style:decimal;font-style:normal;font-weight:400;font-size:16px;line-height:31px;color:#4c4e4d}
 hr{height:0;border-bottom:1px solid #eee}
 .nm-spacer{display:block;width:100%;height:8px}
 .nm-spacer.small{height:6px}
@@ -1237,7 +1242,7 @@ div.wpcf7 .placeheld{color:#888}
 .nm-tabs-panel-inner p{margin: 0;}
 .woocommerce-product-gallery .flex-control-thumbs li img{border: 2px #dc9814 solid;}
 @media (max-width:767px){.woocommerce-product-gallery__wrapper img{height:100%}}
-.nm-post-content p{font-family: -apple-system,BlinkMacSystemFont,PingFang-SC-Regular,Hiragino Sans GB,Microsoft Yahei,Arial,sans-serif;font-size:16px;color: #555;line-height: 32px;font-weight: 400;word-break: normal;word-wrap: break-word;}
+.nm-post-content p{font-family: -apple-system,BlinkMacSystemFont,PingFang-SC-Regular,Hiragino Sans GB,Microsoft Yahei,Arial,sans-serif;font-size:16px;color: #4c4e4d;line-height: 32px;font-weight: 400;word-break: normal;word-wrap: break-word;}
 .nm-post-content a{text-decoration: none;-webkit-transition: all .2s;transition: all .2s;text-transform: capitalize;}
 .nm-post-content a:hover{text-shadow:0 0 60px rgba(255,255,255,.5);background:#ff0084;background:-webkit-linear-gradient(left,#0015ff 0,#ff0084 100%);background:linear-gradient(to right,#0015ff 0,#ff0084 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .entry-summary{display:inline-block;padding:0 7px;background:#ec5b48;color:#fff;border-radius:3px}
@@ -1304,9 +1309,13 @@ div.wpcf7 .placeheld{color:#888}
 .mbw-ask .comment_fttg a{margin-bottom: 10px;}
 .mbw-ask .comment_fttg img{width:100%;border-radius:10px}
 .mbw-ask .mbw_reply_bar{padding:25px 40px;border-radius:5px}
+.mbw-ask .mbw_reply_bar ol,.mbw-ask .mbw_reply_bar ul{list-style-type:disc;padding-left:36px;padding-right:36px;margin:40px auto;-webkit-box-sizing:border-box;box-sizing:border-box}
+.mbw-ask .mbw_reply_bar ul li{margin:10px 0;list-style:disc;font-style:normal;font-weight:400;font-size:16px;line-height:31px;color:#4c4e4d}
+.mbw-ask .mbw_reply_bar ul li::marker{color:red}
+.mbw-ask .mbw_reply_bar ol li{list-style:decimal;font-style:normal;font-weight:400;font-size:16px;line-height:31px;color:#4c4e4d}
 .mbw-ask .mbw_reply_bar .nav_f24{font-size:24px;color:#999;line-height:34px}
 .mbw-ask .mbw_ask_as{padding:20px;border-bottom:1px solid #f2f2f2;position:relative}
-.mbw-ask .mbw_ask_as p{margin:20px 0;font-size:16px;line-height:26px}
+.mbw-ask .mbw_ask_as p{margin:20px 0;font-family:-apple-system,BlinkMacSystemFont,PingFang-SC-Regular,Hiragino Sans GB,Microsoft Yahei,Arial,sans-serif;font-size:16px;color:#4c4e4d;line-height:30px;font-weight:400;word-break:normal}
 .mbw-ask .mbw_ask_as img{display: block;}
 .mbw-ask .ask_tag{padding: 10px;}
 .about-author{background-color:#fff;border-radius:5px;display:flex}
@@ -1355,18 +1364,15 @@ div.wpcf7 .placeheld{color:#888}
 .faq_item .wen a{font-size:16px}
 .faq_item .da{padding:20px;margin-top:10px}
 }
-.woo-tips{
-	padding: 41px 0 53px;
-}
-.woo-tips h2{
-	font-size:20px;
-}
-.woo-tips .woo-dessc{
-	padding-top: 10px;
-	    margin: 20px;
-    padding: 10px;
-    background: #FFFBF1;
-}
-.woo-tips .woo-dessc p{
-	margin: 10px;
+.woo-tips{padding:41px 0 53px}
+.woo-tips h2{font-size:20px}
+.woo-tips .woo-dessc{padding-top:10px;margin:20px;padding:10px;background:#fffbf1}
+.woo-tips .woo-dessc p{margin:10px}
+.entry-content code,.mbw-ask .mbw_reply_bar code {
+	font-size: 14px;
+    font-family: Source Code Pro,Consolas,Liberation Mono,Menlo,Courier,monospace;
+    background-color: #f4f4f4;
+    display: inline-block;
+    word-break: break-all;
+    padding: 0 5px;
 }
