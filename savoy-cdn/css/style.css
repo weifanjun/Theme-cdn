@@ -5,7 +5,7 @@
 	Tags: responsive-layout, custom-background, custom-colors, custom-header, custom-menu, theme-options, threaded-comments, translation-ready
 	Text Domain: nm-framework
 	Domain Path: /languages/
-	Change Log: v20201203
+	Change Log: v20201209
 */
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,dialog,div,dl,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,meter,nav,object,ol,output,p,pre,progress,q,rp,rt,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video,xmp{font-size:100%;margin:0;padding:0;border:0}
 html{height:100%}
@@ -941,7 +941,7 @@ body:not(.header-on-scroll):not(.mobile-menu-open) .alt-logo-mobile .nm-logo{dis
 .entry-content h4{margin-top: 40px;font-size: 20px;}
 .entry-content h5{margin-top: 30px;font-size: 18px;}
 .nm-post-content img{margin:30px;}
-.nm-tabs-panel-inner img {margin-bottom:0px;}
+.nm-tabs-panel-inner img {margin-bottom:0px;display: block;}
 .nm-tabs-panel-inner .aligncenter{margin: 0 auto;}
 .wp-caption img{margin-bottom:0;}
 p:last-child{margin-bottom:0}
@@ -1233,14 +1233,6 @@ div.wpcf7 .placeheld{color:#888}
 .flickity-page-dots .dot,.flickity-page-dots .dot.is-selected{margin:0 7px}
 .flickity-page-dots .dot.is-selected{width:6px;height:6px;border:0 none;background:#dc9814}
 }
-.product .summary .product_title{line-height:1.6;}
-.product .summary .price del .amount{padding-right: 10px;}
-.product .summary .price .amount{font-size:24px;line-height: 1.2;}
-.woocommerce-product-details__short-description{color: #e4393c;}
-.woocommerce-product-gallery__image{overflow: hidden;}
-.woocommerce-product-gallery__wrapper img{height: 493px;border-radius: 5px;}
-.nm-tabs-panel-inner p{margin: 0;}
-.woocommerce-product-gallery .flex-control-thumbs li img{border: 2px #dc9814 solid;}
 @media (max-width:767px){.woocommerce-product-gallery__wrapper img{height:100%}}
 .nm-post-content p{font-family: -apple-system,BlinkMacSystemFont,PingFang-SC-Regular,Hiragino Sans GB,Microsoft Yahei,Arial,sans-serif;font-size:16px;color: #4c4e4d;line-height: 32px;font-weight: 400;word-break: normal;word-wrap: break-word;}
 .nm-post-content a{text-decoration: none;-webkit-transition: all .2s;transition: all .2s;text-transform: capitalize;}
@@ -1284,7 +1276,7 @@ div.wpcf7 .placeheld{color:#888}
 @media all and (max-width:767px){#ac_nav_list{display: none!important}}
 /**ask**/
 .mbw-ask{background:#f8f8f8}
-.mbw-ask .askfa_back{max-height: 240px;}
+.mbw-ask .askfa_back{max-height: 240px;overflow: hidden;}
 .mbw-ask .askfa_back img{width: 100%;}
 .mbw-ask .askfa_bar{padding:20px;border-radius:5px;position:relative}
 .mbw-ask .cslt{position:absolute;height:10px;width:100%}
@@ -1368,11 +1360,4 @@ div.wpcf7 .placeheld{color:#888}
 .woo-tips h2{font-size:20px}
 .woo-tips .woo-dessc{padding-top:10px;margin:20px;padding:10px;background:#fffbf1}
 .woo-tips .woo-dessc p{margin:10px}
-.entry-content code,.mbw-ask .mbw_reply_bar code {
-	font-size: 14px;
-    font-family: Source Code Pro,Consolas,Liberation Mono,Menlo,Courier,monospace;
-    background-color: #f4f4f4;
-    display: inline-block;
-    word-break: break-all;
-    padding: 0 5px;
-}
+.entry-content code,.mbw-ask .mbw_reply_bar code{font-size:14px;font-weight:500;font-family:Source Code Pro,Consolas,Liberation Mono,Menlo,Courier,monospace;background-color:#f4f4f4;display:inline-block;word-break:break-all;padding:0 5px;border:#e5e5e5 2px dashed;margin:0 5px}
