@@ -950,6 +950,8 @@ img.emoji,img.wp-smiley{font-size:inherit}
 code,pre,var{-moz-hyphens:none;font-family:monospace,serif;font-style:normal}
 pre{padding:20px;border:1px solid #e7e7e7;background:#fafafa}
 .entry-content strong{color:#555;text-transform: capitalize;}
+.entry-content a{text-decoration: none;border-bottom: 1px solid #d71a1b;margin: 0 3px;}
+.entry-content a:hover{border-bottom: 2px solid #d71a1b;}
 blockquote h1,blockquote h2,blockquote h3,blockquote h4,blockquote h5,blockquote h6{display:inline-block;padding:7px 0 5px}
 blockquote{position:relative;display:block;margin:35px;font-style:normal;text-align:left;background: #f7f7f7;border-radius: 6px;font-weight:500;font-size:18px;line-height:160%;padding:30px 22px 50px 25px}
 blockquote:before{content:"";width:30px;height:30px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAARCAYAAADHeGwwAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFBSURBVHgB7ZQ/UoNAFMa/t6BhYiF2ig2d2HGE5AYeIZwgeoLEk2S8QTxBcgNbxopGTReqmCjsk2UmCMifJDPOWPgVDLvzvd/7WN4s8Mui8gbbpgmjO2SGS5uVR0EYtkE+nfMemG4E0anmv3q1Dfj6YihBYzBMtZaQ/SN/Ma8Dp2E6JyNJfLvdSxoUmHpmdqyRZIyxh7jTnTGx2+QR6hE5lwOJHJwQJuv7xvRJICbk4BwIyEHZl35OfGU9ITMrI/fJXwS1cNs2pfGxzCCEKb1X/y+hzMglkWCvCZ4GOt70CilZ3tUNg4iMdeEMm47lu0qY21cGz5sC6eWN2LEmP3igBPLyUAUgJreqhiU/6s9vU1IzLCBmaFF+ZNVQEHjSViPWqzOBHUXQbOypyDDcnRscqv8Gf6ABx1rrdaykiWiJA/QFHEl+W66g4YEAAAAASUVORK5CYII=) no-repeat;display:block;background-size:contain;line-height:160%;margin-left:4px;margin-top: -10px;margin-bottom:10px}
