@@ -1510,6 +1510,3 @@ div.wpcf7 .placeheld{color:#888}
 .blog-slider__pagination .swiper-pagination-bullet-active{opacity:1;background:#fd3838;height:30px;box-shadow:0 0 20px rgba(252,56,56,.3)}
 @media screen and (max-width:768px){.blog-slider__pagination .swiper-pagination-bullet-active{height:11px;width:30px}
 }
-.bg-magazine{opacity:.2;-webkit-filter:blur(10px);filter:blur(10px);-webkit-transform:scale(1.1);-ms-transform:scale(1.1);transform:scale(1.1)}
-.bg-poster{-ms-background-size:cover;background-size:cover;background-repeat:no-repeat;background-position:center}
-.bg-effect{position:absolute;top:0;left:0;right:0;bottom:0}
