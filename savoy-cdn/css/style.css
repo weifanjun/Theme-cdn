@@ -1347,9 +1347,10 @@ div.wpcf7 .placeheld{color:#888}
 @media all and (max-width:767px){#ac_nav_list{display:none!important}
 }
 .mbw-ask{background:#f8f8f8}
+.mbw-ask .askfa_top{border-radius:5px;overflow: hidden;}
 .mbw-ask .askfa_back{height:300px;overflow:hidden;background-size: cover;background-repeat: no-repeat;background-position: center;}
 .mbw-ask .askfa_back img{width:100%}
-.mbw-ask .askfa_bar{padding:20px;border-radius:5px;position:relative}
+.mbw-ask .askfa_bar{padding:20px;position:relative}
 .mbw-ask .cslt{position:absolute;height:10px;width:100%}
 .mbw-ask .mbw_bg_fff{background-color:#fff}
 .mbw-ask .askfa_bar .asic{display:inline-block;left:40px;top:40px;font-size:28px;color:#f5b150;line-height:32px}
