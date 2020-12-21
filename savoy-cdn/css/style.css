@@ -5,7 +5,7 @@
 	Tags: responsive-layout, custom-background, custom-colors, custom-header, custom-menu, theme-options, threaded-comments, translation-ready
 	Text Domain: nm-framework
 	Domain Path: /languages/
-	Change Log: v20201217
+	Change Log: v20201221
 */
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,dialog,div,dl,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,meter,nav,object,ol,output,p,pre,progress,q,rp,rt,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video,xmp{font-size:100%;margin:0;padding:0;border:0}
 html{height:100%}
@@ -995,7 +995,7 @@ body:not(.header-on-scroll):not(.mobile-menu-open) .alt-logo-mobile .nm-logo{dis
 .entry-content h4:hover:before{transform:rotate(7deg);-ms-transform:rotate(7deg);-moz-transform:rotate(7deg);-webkit-transform:rotate(7deg);-o-transform:rotate(7deg);}
 .entry-content h5{margin-top:30px;font-size:20px;padding-left:1.6rem}
 .entry-content h5:after{content:"";display:inline-block;height:30px;width:10px;background-color:#dc9814;position:absolute;top:0;left:0}
-.nm-post-content img{margin:30px}
+.nm-post-content img{margin: 40px auto;display: block;}
 .nm-tabs-panel-inner img{margin-bottom:0;display:block}
 .nm-tabs-panel-inner .aligncenter{margin:0 auto}
 .wp-caption img{margin-bottom:0}
@@ -1003,8 +1003,8 @@ p:last-child{margin-bottom:0}
 img.width-full{width:100%}
 img.emoji,img.wp-smiley{font-size:inherit}
 code,pre,var{-moz-hyphens:none;font-family:monospace,serif;font-style:normal}
-pre{padding:20px;border:1px solid #e7e7e7;background:#fafafa}
-.entry-content strong{color:#555;text-transform:capitalize}
+pre{font-family: Roboto Mono,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;padding:20px;border: 2px solid #666;border-radius: .3em;background:#fafafa;color:#222;font-size: 1.125em;line-height: 1.5;tab-size: 2;text-align: left;white-space: pre;word-spacing: normal;word-break: normal;word-wrap: normal;}
+.entry-content strong{text-transform:capitalize}
 .entry-content a{text-decoration:none;border-bottom:1px solid #d71a1b;margin:0 3px}
 .entry-content a:hover{border-bottom:2px solid #d71a1b}
 blockquote h1,blockquote h2,blockquote h3,blockquote h4,blockquote h5,blockquote h6{display:inline-block;padding:7px 0 5px}
@@ -1018,7 +1018,8 @@ cite a{text-decoration:underline}
 }
 .wp-caption{position:relative;max-width:100%}
 .wp-caption img[class*=wp-image-]{display:block;margin:0}
-.wp-caption-text{position:absolute;bottom:15px;left:-15px;font-size:14px;line-height:1.6;color:#eee!important;max-width:240px;margin:0;padding:12px 19px;background:#333}
+/**.wp-caption-text{position:absolute;bottom:15px;left:-15px;font-size:14px;line-height:1.6;color:#eee!important;max-width:240px;margin:0;padding:12px 19px;background:#333}**/
+.wp-caption-text{font-size:14px;line-height:1.6;color:#8e8787!important;padding:12px 19px;}
 ol:not([class]) li,ul:not([class]) li{list-style-position:inside}
 .page>ol:not([class]){padding-left:18px}
 .page>ul:not([class]){padding-left:14px}
@@ -1432,7 +1433,7 @@ div.wpcf7 .placeheld{color:#888}
 .woo-tips h2{font-size:20px}
 .woo-tips .woo-dessc{padding-top:10px;margin:20px;padding:10px;background:#fffbf1}
 .woo-tips .woo-dessc p{margin:10px}
-.entry-content code,.mbw-ask .mbw_reply_bar code{font-size:14px;font-weight:500;font-family:Source Code Pro,Consolas,Liberation Mono,Menlo,Courier,monospace;background-color:#f4f4f4;display:inline-block;word-break:break-all;padding:0 5px;border:#e5e5e5 2px dashed;margin:0 5px}
+.entry-content code,.mbw-ask .mbw_reply_bar code{font-size:14px;font-weight:600;font-family:Source Code Pro,Consolas,Liberation Mono,Menlo,Courier,monospace;background-color: #272822;color: #fff;border-radius: .2em;display:inline-block;word-break:break-all;padding:0 5px;margin:0 5px}
 .mbw-top35{padding-top:35px}
 .mbw-back{background:#f8f8f8}
 .nm-post-pagination{max-width:1260px;margin:0 auto}
